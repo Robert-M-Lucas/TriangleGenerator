@@ -6,8 +6,8 @@ import math
 
 size = (1000, 1000)
 cells = (20, 20)
-randomness = 17  # Random offset of points
-min_randomness = 8
+randomness = 0  # Random offset of points
+min_randomness = 0
 
 # Top-left,    Top-right
 # Bottom-left, Bottom-right
@@ -31,12 +31,16 @@ def translate(x_val, y_val):
 
 
 def get_color(point: Point):
-    return random.choice([(get_balanced_color(colors, point.x, point.y, size) + (
-            Color.Grey(color_variance) * random.random())).get_tuple(),
-
-          (get_balanced_color(colors, point.x, point.y, size) - (
-                  Color.Grey(color_variance) * random.random())).get_tuple(),
-          ])
+    return random.choice([
+        (
+                get_balanced_color(colors, point.x, point.y, size) +
+                (Color.Grey(color_variance) * random.random())
+         ).get_tuple(),
+        (
+                get_balanced_color(colors, point.x, point.y, size) -
+                (Color.Grey(color_variance) * random.random())
+        ).get_tuple(),
+    ])
 
 
 # Draw

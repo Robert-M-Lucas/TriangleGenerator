@@ -38,19 +38,15 @@ def get_balanced_color(colors, x, y, size) -> Color:
     influence = [0, 0, 0, 0]
 
     dist = math.sqrt((x**2) + (y**2))
-    if dist > max_dist: print(max_dist, dist, x, y, 1)
     influence[0] = 1 - (dist / max_dist)
 
     dist = math.sqrt(((size[0] - x) - 1) ** 2 + y ** 2)
-    if dist > max_dist: print(max_dist, dist, x, y, 2)
     influence[1] = 1 - (dist / max_dist)
 
     dist = math.sqrt(x ** 2 + ((size[1] - y) - 1) ** 2)
-    if dist > max_dist: print(max_dist, dist, x, y, 3)
     influence[2] = 1 - (dist / max_dist)
 
     dist = math.sqrt(((size[0] - x) - 1) ** 2 + ((size[1] - y) - 1) ** 2)
-    if dist > max_dist: print(max_dist, dist, x, y, 4)
     influence[3] = 1 - (dist / max_dist)
 
     for i, c in enumerate(colors):
